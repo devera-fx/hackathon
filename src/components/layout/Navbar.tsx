@@ -81,7 +81,7 @@ const Navbar = () => {
   }, [reFetch]);
 
   return (
-    <header className="bg-white shadow-sm py-7 px-10 lg:px-20">
+    <div className="bg-white shadow-sm py-7 px-10 lg:px-20">
       <div className="flex justify-between items-center gap-8">
         <Link href={"/"} className="cursor-pointer">
           <Image src={Logo} alt="Dine image" priority />
@@ -120,10 +120,9 @@ const Navbar = () => {
         <div className="-mr-2 flex lg:hidden">
           <button
             type="button"
-            onClick={hendleClick}
+            onClick={() => setResponsive(!responsive)}
             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-700 focus:ring-white"
           >
-            <span className="sr-only">Open Main Manue</span>
             {responsive == true ? (
               <IoMdClose size={29} />
             ) : (
@@ -132,22 +131,42 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {responsive ? (
-        <div className="lg:hidden">
-          <div className="px-2 pt-2 pb-3">
-            {navItems.map((link, index) => (
-              <Link
-                href={link.href}
-                key={index}
-                className="text-gray-300 bg-gray-800 hover:text-white block px-3 py-2 text-xl font-semibold"
-              >
-                {link.title}
-              </Link>
-            ))}
+      <div
+        className={`flex flex-col items-center justify-center absolute min-h-screen w-screen space-y-3 bg-white text-gray-800 lg:hidden ${
+          responsive ? "flex" : "hidden"
+        }`}
+      >
+        <Link
+          href={"/cart"}
+          onClick={() => {
+            setResponsive(false);
+          }}
+        >
+          <div className="relative h-11 w-11 rounded-full bg-gray-200">
+            <span className="absolute right-0 top-0 rounded-full bg-red-500 h-4 w-4 text-white text-center text-[11px]">
+              {cartValue}
+            </span>
+            <div className="flex justify-center items-center h-11 w-11 flex-shrink-0">
+              <ShoppingCart />
+            </div>
           </div>
+        </Link>
+        <div className="flex flex-col space-y-3 text-center font-medium">
+          {navItems.map((link, index) => (
+            <Link
+              href={link.href}
+              key={index}
+              className="block px-3 py-2 text-xl font-semibold"
+              onClick={() => {
+                setResponsive(false);
+              }}
+            >
+              {link.title}
+            </Link>
+          ))}
         </div>
-      ) : null}
-    </header>
+      </div>
+    </div>
   );
 };
 
