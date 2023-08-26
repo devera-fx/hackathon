@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const result = await getProductsByCategory(params.slug);
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center flex-wrap gap-x-3">
+    <div className="flex flex-col lg:flex-row items-center justify-center flex-wrap gap-x-3">
       {result.map((product: any, index: number) => (
         <div key={index} className="py-5">
           <ProductCard
