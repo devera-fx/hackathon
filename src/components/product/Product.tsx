@@ -23,11 +23,11 @@ const Product: React.FC<Props> = ({ result, id }) => {
 
   return (
     <section className="mt-20 mx-auto justify-center items-center bg-[#fcfcfc]">
-      <div className="flex mb-10">
+      <div className="flex flex-col lg:flex-row mb-10">
         {result.map((product: any, index: number) => (
           <div
             key={index}
-            className="flex flex-col sm:flex-row gap-x-5 justify-between"
+            className="flex flex-col lg:flex-row items-center gap-x-5 justify-between"
           >
             {/* left side (image) */}
             <div className="flex gap-x-5">
