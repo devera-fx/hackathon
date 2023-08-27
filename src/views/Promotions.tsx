@@ -17,7 +17,7 @@ const Promotions = () => {
         {/* left */}
         <div className="flex flex-col flex-1 gap-y-5">
           {/* top */}
-          <div className="flex flex-row gap-x-8 px-6 justify-center items-center bg-[#d6d6d8]">
+          <div className="flex flex-col lg:flex-row gap-x-8 px-6 justify-center items-center bg-[#d6d6d8]">
             {/* contents */}
             <div>
               <h1 className="text-3xl font-bold">
