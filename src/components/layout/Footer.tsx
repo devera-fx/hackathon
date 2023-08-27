@@ -80,7 +80,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <hr className="mx-auto bg-black dark:bg-white w-full border border-black" />
+      <hr className="mx-0 bg-black dark:bg-white min-w-full border border-black" />
       <div className="grid grid-rows-3 md:grid-cols-3 my-8 gap-10 sm:px-20 w-full">
         <p className="text-base font-normal">Copyright © 2022 Dine Market</p>
         <p className="text-base font-normal">
